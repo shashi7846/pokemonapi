@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
-import { SemipolarLoading } from 'react-loadingg';
+import { CircleToBlockLoading } from 'react-loadingg';
 import { getPokemon, getAllPokemon } from './services/pokemon';
 import './App.css';
 
@@ -70,7 +70,7 @@ function App() {
               <button onClick={next}>Next</button>
             </div> */}
           </>
-        )}:<SemipolarLoading  />
+        )}:<CircleToBlockLoading  />
       </div>
     </>
   );
