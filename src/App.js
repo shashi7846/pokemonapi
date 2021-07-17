@@ -54,7 +54,8 @@ function App() {
     <>
       <Navbar />
       <div>
-        {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> : (
+        {
+        loading?(
           <>
             {/* <div className="btn">
               <button onClick={prev}>Prev</button>
@@ -70,7 +71,7 @@ function App() {
               <button onClick={next}>Next</button>
             </div> */}
           </>
-        )}:<CircleToBlockLoading  />
+        ):<CircleToBlockLoading  />}
       </div>
     </>
   );
