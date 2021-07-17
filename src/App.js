@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
-import { CircleToBlockLoading } from 'react-loadingg';
+import { SemipolarLoading } from 'react-loadingg';
 import { getPokemon, getAllPokemon } from './services/pokemon';
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
   const [pokemonData, setPokemonData] = useState([])
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const initialURL = 'https://pokeapi.co/api/v2/pokemon?limit=50&offset=200'
 
   useEffect(() => {
@@ -54,24 +54,17 @@ function App() {
     <>
       <Navbar />
       <div>
-        {
-        loading?(
+        {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> : (
           <>
-            {/* <div className="btn">
-              <button onClick={prev}>Prev</button>
-              <button onClick={next}>Next</button>
-            </div> */}
+           
             <div className="grid-container">
               {pokemonData.map((pokemon, i) => {
                 return <Card key={i} pokemon={pokemon} />
               })}
             </div>
-            {/* <div className="btn">
-              <button onClick={prev}>Prev</button>
-              <button onClick={next}>Next</button>
-            </div> */}
+           
           </>
-        ):<CircleToBlockLoading  />}
+        )}
       </div>
     </>
   );
